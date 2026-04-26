@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PARTNERS — MEGURIWA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/common.css">
+<style>
+
+.partners-intro{padding:60px 0 80px;text-align:center}
+.partners-intro__text{font-size:14px;line-height:2.2;color:var(--ink-soft);max-width:640px;margin:0 auto;letter-spacing:0.06em}
+
+.curators-section{padding:0 0 100px}
+.curators-section__head{text-align:center;margin-bottom:64px}
+.curators-section__title{font-family:var(--display);font-size:32px;letter-spacing:0.16em;font-weight:400;margin:0 0 12px}
+.curators-section__sub{font-family:var(--serif);font-size:12px;letter-spacing:0.2em;color:var(--muted);margin:0}
+
+.curators-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
+.curator-card{cursor:pointer}
+.curator-card__img{aspect-ratio:4/5;background:var(--line-soft);overflow:hidden;margin-bottom:18px}
+.curator-card__img img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.curator-card:hover .curator-card__img img{transform:scale(1.04)}
+.curator-card__role{font-family:var(--sans);font-size:9px;letter-spacing:0.22em;color:var(--muted);margin:0 0 8px;text-transform:uppercase}
+.curator-card__name{font-family:var(--display);font-size:22px;letter-spacing:0.04em;font-weight:500;margin:0 0 8px}
+.curator-card__theme{font-family:var(--serif);font-size:12px;color:var(--ink-soft);letter-spacing:0.06em;margin:0 0 12px}
+.curator-card__quote{font-family:var(--serif);font-size:13px;line-height:2;color:var(--ink-soft);margin:0;font-style:italic}
+
+@media (max-width:760px){
+  .curators-grid{grid-template-columns:1fr;gap:48px}
+}
+
+.curated-collections{padding:80px 0 100px;background:var(--line-soft)}
+.cc__head{text-align:center;margin-bottom:48px}
+.cc__title{font-family:var(--display);font-size:28px;letter-spacing:0.16em;font-weight:400;margin:0 0 8px}
+.cc__sub{font-family:var(--serif);font-size:12px;letter-spacing:0.2em;color:var(--muted);margin:0}
+
+.cc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.cc-card{
+  position:relative;aspect-ratio:4/5;overflow:hidden;background:#1a1a1a;
+  cursor:pointer;
+}
+.cc-card img{width:100%;height:100%;object-fit:cover;filter:brightness(0.78)}
+.cc-card__overlay{
+  position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:32px;color:#fff;
+}
+.cc-card__overlay .by{font-family:var(--display);font-style:italic;font-size:12px;letter-spacing:0.12em;color:#c9bfa8;margin:0 0 8px}
+.cc-card__overlay .title{font-family:var(--serif);font-size:16px;letter-spacing:0.08em;font-weight:400;margin:0 0 8px;line-height:1.6}
+.cc-card__overlay .count{font-family:var(--sans);font-size:10px;letter-spacing:0.18em;color:rgba(255,255,255,0.7);margin:0;text-transform:uppercase}
+
+@media (max-width:760px){
+  .cc-grid{grid-template-columns:1fr;gap:16px}
+}
+
+.invite-cta{padding:120px 0;text-align:center;border-top:1px solid var(--line)}
+.invite-cta__eyebrow{font-family:var(--display);font-style:italic;font-size:13px;color:var(--muted);letter-spacing:0.16em;margin:0 0 18px}
+.invite-cta__title{font-family:var(--serif);font-size:clamp(22px,2.4vw,28px);font-weight:300;letter-spacing:0.1em;line-height:2;margin:0 0 32px}
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <div class="site-header__logo">MEGURIWA</div>
+    <nav class="site-nav">
+      <a href="../index_v2.html">HOME</a>
+      <a href="#">MARKET</a>
+      <a href="#">PROJETCS</a>
+      <a href="#">JOURNAL</a>
+      <a href="#">MAKERS</a>
+      <a class="is-active" href="#">PARTNERS</a>
+      <a href="#">JOIN</a>
+      <a href="#">FAQ</a>
+      <a href="#">CONTACT</a>
+    </nav>
+    <div class="site-header__lang">
+      <span class="active">JA</span> ／ <span>EN</span>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <p class="page-hero__eyebrow">— Curators &amp; Companions</p>
+  <h1 class="page-hero__title">PARTNERS</h1>
+  <p class="page-hero__sub">MEGURIWAを共に創るパートナーたち</p>
+</section>
+
+<section class="partners-intro">
+  <div class="container--narrow">
+    <p class="partners-intro__text">
+      MEGURIWAは、つくり手だけのものではありません。<br>
+      暮らしの中でいいものを使いつづけ、自分の言葉で、誰かに伝える人たち。<br>
+      その「伝え手」を、わたしたちはパートナーと呼んでいます。
+    </p>
+  </div>
+</section>
+
+<section class="curators-section">
+  <div class="container">
+    <div class="curators-section__head">
+      <h2 class="curators-section__title">CURATORS</h2>
+      <p class="curators-section__sub">Curated by</p>
+    </div>
+
+    <div class="curators-grid">
+      <article class="curator-card">
+        <div class="curator-card__img"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=900&q=85" alt=""></div>
+        <p class="curator-card__role">CURATOR / TOKYO</p>
+        <h3 class="curator-card__name">Sow</h3>
+        <p class="curator-card__theme">編集者 ／ 暮らしの余白を集めるひと</p>
+        <p class="curator-card__quote">"使うほどに、馴染んでくれるものを。"</p>
+      </article>
+      <article class="curator-card">
+        <div class="curator-card__img"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900&q=85" alt=""></div>
+        <p class="curator-card__role">CURATOR / KYOTO</p>
+        <h3 class="curator-card__name">Kenji Ono</h3>
+        <p class="curator-card__theme">茶人 ／ 所作と布に惹かれて</p>
+        <p class="curator-card__quote">"ひとつ取り入れると、暮らしのリズムが整います。"</p>
+      </article>
+      <article class="curator-card">
+        <div class="curator-card__img"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=900&q=85" alt=""></div>
+        <p class="curator-card__role">CURATOR / FUKUOKA</p>
+        <h3 class="curator-card__name">Mika Hirota</h3>
+        <p class="curator-card__theme">料理家 ／ 台所まわりの審美</p>
+        <p class="curator-card__quote">"使うほどよくなるものを、台所に揃えていきたい。"</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="curated-collections">
+  <div class="container">
+    <div class="cc__head">
+      <h2 class="cc__title">CURATED COLLECTIONS</h2>
+      <p class="cc__sub">パートナーの選書</p>
+    </div>
+    <div class="cc-grid">
+      <article class="cc-card">
+        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=1200&q=85" alt="">
+        <div class="cc-card__overlay">
+          <p class="by">— Curated by Sow</p>
+          <p class="title">朝の余白を編む、十のもの</p>
+          <p class="count">10 ITEMS</p>
+        </div>
+      </article>
+      <article class="cc-card">
+        <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1200&q=85" alt="">
+        <div class="cc-card__overlay">
+          <p class="by">— Curated by Kenji Ono</p>
+          <p class="title">所作とともに、巡る道具</p>
+          <p class="count">8 ITEMS</p>
+        </div>
+      </article>
+      <article class="cc-card">
+        <img src="https://images.unsplash.com/photo-1532619187608-e5375cab36aa?w=1200&q=85" alt="">
+        <div class="cc-card__overlay">
+          <p class="by">— Curated by Mika Hirota</p>
+          <p class="title">台所をつくる、十二のもの</p>
+          <p class="count">12 ITEMS</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="invite-cta">
+  <div class="container--narrow">
+    <p class="invite-cta__eyebrow">— Become a Curator</p>
+    <p class="invite-cta__title">気に入ったものを、<br>あなたのことばで、誰かに伝える。</p>
+    <a href="join.html" class="btn-line">伝え手について</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer__brand">
+        <p class="footer__brand-name">MEGURIWA</p>
+        <p class="footer__brand-tag">
+          循環のモノ・コト。<br>
+          つながる輪、巡るくらし。
+        </p>
+      </div>
+      <div class="footer__col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="market.html">MARKET</a></li>
+          <li><a href="projects.html">PROJETCS</a></li>
+          <li><a href="#">JOURNAL</a></li>
+          <li><a href="makers.html">MAKERS</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Community</h4>
+        <ul>
+          <li><a href="partners.html">PARTNERS</a></li>
+          <li><a href="join.html">JOIN</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Information</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="https://meguriwasupport.studio.site/" target="_blank">CONTACT</a></li>
+          <li><a href="#">特定商取引法</a></li>
+          <li><a href="#">プライバシー</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 MEGURIWA</span>
+      <span>JA ／ EN</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
