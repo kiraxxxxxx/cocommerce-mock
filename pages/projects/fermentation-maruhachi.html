@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>発酵プロジェクト × 丸八百貨店 — MEGURIWA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/common.css">
+<style>
+/* ========== Project Detail Page ========== */
+
+/* HERO 帯：プロジェクト名横スクロール */
+.proj-hero{
+  margin-top:74px;
+  background:#1a1a1a;
+  color:#fff;
+  padding:64px 0 56px;
+  overflow:hidden;
+  position:relative;
+}
+.proj-hero__marquee{
+  display:flex;
+  white-space:nowrap;
+  animation:marquee 60s linear infinite;
+  font-family:var(--display);
+  font-style:italic;
+  font-size:clamp(48px,7vw,96px);
+  font-weight:400;
+  letter-spacing:0.06em;
+  line-height:1.2;
+  color:rgba(255,255,255,0.9);
+}
+.proj-hero__marquee span{
+  padding-right:60px;
+  display:inline-block;
+}
+@keyframes marquee{
+  0%   { transform:translateX(0); }
+  100% { transform:translateX(-50%); }
+}
+.proj-hero__cta{
+  text-align:center;
+  margin-top:48px;
+}
+.proj-hero__cta a{
+  display:inline-block;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.28em;
+  padding:16px 48px;
+  border:1px solid #fff;color:#fff;background:transparent;
+  transition:background .3s,color .3s;
+}
+.proj-hero__cta a:hover{background:#fff;color:#1a1a1a}
+
+/* PROJECT STATUS 帯 */
+.proj-status{
+  padding:48px 0;
+  border-bottom:1px solid var(--line);
+  background:var(--paper);
+}
+.proj-status__inner{
+  max-width:760px;margin:0 auto;padding:0 32px;
+  text-align:center;
+}
+.proj-status__label{
+  font-family:var(--display);font-style:italic;
+  font-size:13px;letter-spacing:0.22em;
+  color:var(--muted);margin:0 0 18px;
+  text-transform:uppercase;
+}
+.proj-status__bar{
+  width:100%;height:4px;background:var(--line);
+  position:relative;margin:0 0 16px;
+}
+.proj-status__bar-fill{
+  position:absolute;left:0;top:0;
+  height:100%;width:45%;
+  background:var(--ink);
+}
+.proj-status__meta{
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.2em;
+  color:var(--ink-soft);margin:0;
+}
+.proj-status__pct{
+  font-family:var(--display);
+  font-size:18px;font-style:italic;
+  color:var(--ink);
+}
+.proj-status__phase{color:var(--muted)}
+
+/* プロジェクトヘッダー：左タイトル+説明 / 右クライアントカード */
+.proj-header{
+  padding:100px 0 80px;
+}
+.proj-header__inner{
+  max-width:1200px;margin:0 auto;padding:0 32px;
+  display:grid;
+  grid-template-columns:1.7fr 1fr;
+  gap:80px;
+  align-items:start;
+}
+.proj-header__main h1{
+  font-family:var(--serif);
+  font-size:clamp(28px,3.6vw,42px);
+  font-weight:300;
+  letter-spacing:0.08em;
+  line-height:1.5;
+  margin:0 0 32px;
+}
+.proj-header__cat{
+  font-family:var(--display);font-style:italic;
+  font-size:14px;letter-spacing:0.16em;
+  color:var(--muted);margin:0 0 14px;
+}
+.proj-header__desc{
+  font-size:14px;line-height:2.1;color:var(--ink-soft);
+  margin:0 0 24px;letter-spacing:0.04em;
+}
+.proj-header__meta{
+  display:flex;flex-wrap:wrap;gap:16px;margin-top:32px;
+}
+.proj-header__meta span{
+  font-family:var(--sans);font-size:10px;letter-spacing:0.22em;
+  color:var(--muted);
+  border:1px solid var(--line);
+  padding:8px 14px;
+  text-transform:uppercase;
+}
+
+/* 右カラム クライアントカード */
+.client-card{
+  border:1px solid var(--line);
+  padding:40px 32px;
+  background:var(--paper);
+  text-align:center;
+}
+.client-card__img{
+  width:140px;height:140px;
+  margin:0 auto 24px;
+  border-radius:50%;
+  overflow:hidden;
+  background:var(--line-soft);
+  border:1px solid var(--line);
+}
+.client-card__img img{width:100%;height:100%;object-fit:cover}
+.client-card__name{
+  font-family:var(--serif);
+  font-size:18px;font-weight:500;
+  letter-spacing:0.12em;
+  margin:0 0 12px;
+  padding-bottom:12px;
+  border-bottom:1px solid var(--ink);
+  display:inline-block;
+  min-width:60%;
+}
+.client-card__profile{
+  font-size:12px;line-height:1.9;color:var(--ink-soft);
+  margin:0 0 24px;text-align:left;letter-spacing:0.04em;
+}
+.client-card__sns{
+  display:flex;justify-content:center;gap:10px;
+}
+.sns-btn{
+  font-family:var(--sans);font-size:10px;letter-spacing:0.16em;
+  padding:8px 14px;border:1px solid var(--line);border-radius:24px;
+  color:var(--ink);transition:background .3s,color .3s,border-color .3s;
+}
+.sns-btn:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+@media (max-width:900px){
+  .proj-header__inner{grid-template-columns:1fr;gap:48px}
+}
+
+/* ====== プロジェクト概要セクション（4ブロック） ====== */
+.proj-detail{
+  background:var(--line-soft);
+  padding:100px 0;
+  border-top:1px solid var(--line);
+}
+.proj-detail__inner{
+  max-width:880px;margin:0 auto;padding:0 32px;
+}
+.proj-detail__block{
+  margin-bottom:64px;
+  padding-bottom:48px;
+  border-bottom:1px solid var(--line);
+}
+.proj-detail__block:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.proj-detail__num{
+  font-family:var(--display);font-style:italic;
+  font-size:14px;letter-spacing:0.16em;
+  color:var(--muted);margin:0 0 12px;
+}
+.proj-detail__title{
+  font-family:var(--serif);
+  font-size:24px;font-weight:400;
+  letter-spacing:0.12em;line-height:1.6;
+  margin:0 0 24px;
+}
+.proj-detail__body{
+  font-size:14px;line-height:2.1;color:var(--ink-soft);
+  margin:0;letter-spacing:0.04em;
+}
+.proj-detail__body p{margin:0 0 14px}
+.proj-detail__body a{
+  color:var(--ink);
+  border-bottom:1px solid var(--ink);
+  padding-bottom:2px;
+}
+
+/* ====== Journal 関連記事 ====== */
+.proj-journal{padding:100px 0 80px}
+.proj-journal__head{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  margin-bottom:48px;border-bottom:1px solid var(--line);padding-bottom:24px;
+}
+.proj-journal__title{
+  font-family:var(--display);
+  font-size:32px;letter-spacing:0.18em;font-weight:400;margin:0;
+}
+.proj-journal__more{
+  font-family:var(--sans);font-size:11px;letter-spacing:0.22em;
+  color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:2px;
+}
+.proj-journal__grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:32px;
+}
+.j-card{cursor:pointer}
+.j-card__img{aspect-ratio:4/3;overflow:hidden;background:var(--paper);margin-bottom:16px}
+.j-card__img img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.j-card:hover .j-card__img img{transform:scale(1.04)}
+.j-card__title{
+  font-family:var(--serif);font-size:13px;letter-spacing:0.06em;
+  font-weight:400;margin:0 0 10px;line-height:1.85;
+}
+.j-card__date{
+  font-family:var(--sans);font-size:10px;letter-spacing:0.18em;
+  color:var(--muted);margin:0;
+}
+
+@media (max-width:760px){
+  .proj-journal__grid{grid-template-columns:1fr;gap:32px}
+}
+
+/* ====== プロジェクト商品セクション ====== */
+.proj-products{
+  padding:80px 0 100px;
+  background:var(--paper);
+  border-top:1px solid var(--line);
+}
+.proj-products__head{
+  text-align:center;margin-bottom:48px;
+}
+.proj-products__eyebrow{
+  font-family:var(--display);font-style:italic;font-size:13px;
+  letter-spacing:0.12em;color:var(--muted);margin:0 0 12px;
+}
+.proj-products__title{
+  font-family:var(--serif);font-size:24px;
+  letter-spacing:0.16em;font-weight:400;margin:0;
+}
+
+.proj-products__tools{
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.16em;
+  color:var(--muted);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding:20px 0;margin-bottom:48px;
+}
+.proj-products__count{color:var(--ink)}
+
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.product{cursor:pointer}
+.product__img{aspect-ratio:1;background:var(--line-soft);overflow:hidden;margin-bottom:14px;border:1px solid var(--line)}
+.product__img img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.product:hover .product__img img{transform:scale(1.04)}
+.product__maker{font-family:var(--sans);font-size:9px;letter-spacing:0.22em;color:var(--ink);margin:0 0 6px;text-transform:uppercase}
+.product__name{font-family:var(--serif);font-size:13px;letter-spacing:0.06em;font-weight:400;margin:0 0 4px;line-height:1.7}
+.product__price{font-family:var(--sans);font-size:11px;color:var(--ink-soft);margin:0}
+
+@media (max-width:900px){
+  .product-grid{grid-template-columns:repeat(2,1fr);gap:20px}
+}
+
+/* ====== Curators 帯（このプロジェクトを推すパートナー） ====== */
+.proj-curators{
+  padding:100px 0;
+  background:var(--line-soft);
+  border-top:1px solid var(--line);
+}
+.proj-curators__head{text-align:center;margin-bottom:48px}
+.proj-curators__title{
+  font-family:var(--display);
+  font-size:28px;letter-spacing:0.16em;font-weight:400;margin:0 0 8px;
+}
+.proj-curators__sub{
+  font-family:var(--serif);font-size:12px;letter-spacing:0.2em;
+  color:var(--muted);margin:0;
+}
+
+.cur-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1080px;margin:0 auto;padding:0 32px}
+.cur-card{
+  background:var(--paper);padding:32px;
+  text-align:center;border:1px solid var(--line);
+}
+.cur-card__img{
+  width:96px;height:96px;border-radius:50%;
+  margin:0 auto 18px;overflow:hidden;
+  background:var(--line-soft);
+}
+.cur-card__img img{width:100%;height:100%;object-fit:cover}
+.cur-card__role{font-family:var(--sans);font-size:9px;letter-spacing:0.22em;color:var(--muted);margin:0 0 8px;text-transform:uppercase}
+.cur-card__name{font-family:var(--display);font-size:18px;letter-spacing:0.04em;font-weight:500;margin:0 0 12px}
+.cur-card__quote{font-family:var(--serif);font-size:12px;line-height:1.9;color:var(--ink-soft);margin:0;font-style:italic}
+
+@media (max-width:760px){
+  .cur-grid{grid-template-columns:1fr;gap:16px}
+}
+
+/* breadcrumb */
+.crumb{
+  margin-top:74px;
+  padding:24px 0;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.16em;
+  color:var(--muted);
+  border-bottom:1px solid var(--line);
+}
+.crumb a{color:var(--muted);transition:color .3s}
+.crumb a:hover{color:var(--ink)}
+.crumb span.sep{margin:0 12px;color:var(--line)}
+.crumb span.current{color:var(--ink)}
+</style>
+</head>
+<body>
+
+<!-- ============= HEADER ============= -->
+<header class="site-header">
+  <div class="site-header__inner">
+    <div class="site-header__logo">MEGURIWA</div>
+    <nav class="site-nav">
+      <a href="../../index_v2.html">HOME</a>
+      <a href="../market.html">MARKET</a>
+      <a class="is-active" href="../projects.html">PROJETCS</a>
+      <a href="#">JOURNAL</a>
+      <a href="../makers.html">MAKERS</a>
+      <a href="../partners.html">PARTNERS</a>
+      <a href="../join.html">JOIN</a>
+      <a href="#">FAQ</a>
+      <a href="https://meguriwasupport.studio.site/" target="_blank" rel="noopener">CONTACT</a>
+    </nav>
+    <div class="site-header__lang">
+      <span class="active">JA</span> ／ <span>EN</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============= BREADCRUMB ============= -->
+<div class="crumb">
+  <div class="container">
+    <a href="../../index_v2.html">HOME</a>
+    <span class="sep">／</span>
+    <a href="../projects.html">PROJECTS</a>
+    <span class="sep">／</span>
+    <span class="current">発酵プロジェクト × 丸八百貨店</span>
+  </div>
+</div>
+
+<!-- ============= PROJECT HERO（マーキー） ============= -->
+<section class="proj-hero">
+  <div class="proj-hero__marquee" aria-hidden="true">
+    <span>発酵プロジェクト × 丸八百貨店</span>
+    <span>発酵プロジェクト × 丸八百貨店</span>
+    <span>発酵プロジェクト × 丸八百貨店</span>
+    <span>発酵プロジェクト × 丸八百貨店</span>
+    <span>発酵プロジェクト × 丸八百貨店</span>
+    <span>発酵プロジェクト × 丸八百貨店</span>
+  </div>
+  <div class="proj-hero__cta">
+    <a href="#products">今すぐ購入 →</a>
+  </div>
+</section>
+
+<!-- ============= PROJECT STATUS ============= -->
+<section class="proj-status">
+  <div class="proj-status__inner">
+    <p class="proj-status__label">— Project Status</p>
+    <div class="proj-status__bar"><div class="proj-status__bar-fill"></div></div>
+    <div class="proj-status__meta">
+      <span class="proj-status__phase">試作・開発中</span>
+      <span class="proj-status__pct">45%</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============= PROJECT HEADER（タイトル + クライアント） ============= -->
+<section class="proj-header">
+  <div class="proj-header__inner">
+    <div class="proj-header__main">
+      <p class="proj-header__cat">— Fermentation Project</p>
+      <h1>発酵プロジェクト × 丸八百貨店<br>滋賀の食卓の味を、<br>全国の食卓へ。</h1>
+      <p class="proj-header__desc">
+        滋賀県・近江八幡で百年続く丸八百貨店と MEGURIWA が共に取り組む発酵食プロジェクト。地域の発酵文化を守りながら、いまの暮らしに馴染むかたちでドレッシング・調味料・常備菜を共同開発しています。
+      </p>
+      <p class="proj-header__desc">
+        滋賀の郷土料理にひそんでいた「だしと米麹のあわせ技」を起点に、家庭の食卓でも気軽に使える発酵調味料へと再設計。試作・テイスティング・包装デザインまで、つくり手とMEGURIWAのキュレーターが行き来しながら作り上げています。
+      </p>
+      <div class="proj-header__meta">
+        <span>SHIGA</span>
+        <span>FERMENTATION</span>
+        <span>CO-DEVELOPMENT</span>
+        <span>2026 SPRING — ONGOING</span>
+      </div>
+    </div>
+
+    <aside class="client-card">
+      <div class="client-card__img">
+        <img src="https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=400&q=85" alt="">
+      </div>
+      <p class="client-card__name">丸八百貨店</p>
+      <p class="client-card__profile">
+        滋賀県・近江八幡で百年続く老舗。地域に根ざした食材と、発酵食文化を守り伝えています。郷土の味を、現代の食卓に届けるための共創パートナー。
+      </p>
+      <div class="client-card__sns">
+        <a class="sns-btn" href="#" target="_blank" rel="noopener">Instagram</a>
+        <a class="sns-btn" href="#" target="_blank" rel="noopener">Website</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ============= プロジェクト概要 4ブロック ============= -->
+<section class="proj-detail">
+  <div class="proj-detail__inner">
+
+    <div class="proj-detail__block">
+      <p class="proj-detail__num">01.</p>
+      <h2 class="proj-detail__title">プロジェクト概要</h2>
+      <div class="proj-detail__body">
+        <p>食卓の味を、全国へ。</p>
+        <p>滋賀の発酵文化と、丸八百貨店の伝統的な仕込み技術を掛け合わせて、家庭の食卓で気軽に使える発酵調味料・ドレッシング・常備菜を共同開発します。地域の食文化が、毎日の暮らしに溶けていく仕組みをつくる挑戦です。</p>
+      </div>
+    </div>
+
+    <div class="proj-detail__block">
+      <p class="proj-detail__num">02.</p>
+      <h2 class="proj-detail__title">目指したいゴール</h2>
+      <div class="proj-detail__body">
+        <p>2026年夏までに、第一弾として「米麹ドレッシング 三種」を完成させ、MEGURIWAストアで販売開始。発酵調味料が「特別な日のもの」ではなく「毎日の食卓のもの」になる文化を、滋賀から全国へ広げます。</p>
+      </div>
+    </div>
+
+    <div class="proj-detail__block">
+      <p class="proj-detail__num">03.</p>
+      <h2 class="proj-detail__title">参加・応援の方法</h2>
+      <div class="proj-detail__body">
+        <p>このプロジェクトは、買って応援、伝えて応援の両方で関わることができます。</p>
+        <p>商品を購入してくださる方は、下記の <a href="#products">「巡るもの」セクション</a>から。Curator（伝え手）として、ご自身のSNSやメディアで広めてくださる方は、<a href="../join.html">JOINページ</a>からご応募ください。</p>
+      </div>
+    </div>
+
+    <div class="proj-detail__block">
+      <p class="proj-detail__num">04.</p>
+      <h2 class="proj-detail__title">注意事項</h2>
+      <div class="proj-detail__body">
+        <p>私たちの商品は、国内および海外で製造されています。高品質で適正な価格の商品をお届けするため、製造パートナーを慎重に選定しています。発酵食品は気温・湿度の影響を受けやすいため、夏期はクール便での発送になります（送料は商品ページ参照）。</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============= Journal 関連記事 ============= -->
+<section class="proj-journal">
+  <div class="container">
+    <div class="proj-journal__head">
+      <h2 class="proj-journal__title">JOURNAL</h2>
+      <a href="#" class="proj-journal__more">すべて見る →</a>
+    </div>
+    <div class="proj-journal__grid">
+      <article class="j-card">
+        <div class="j-card__img"><img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=900&q=85" alt=""></div>
+        <h3 class="j-card__title">サステイナビリティの先端、徳島県・上勝町がゼロ・ウェイスト宣言の先にみる未来</h3>
+        <p class="j-card__date">2026.04.20</p>
+      </article>
+      <article class="j-card">
+        <div class="j-card__img"><img src="https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=900&q=85" alt=""></div>
+        <h3 class="j-card__title">滋賀・丸八百貨店訪問記 ／ 百年の発酵蔵を歩く</h3>
+        <p class="j-card__date">2026.04.14</p>
+      </article>
+      <article class="j-card">
+        <div class="j-card__img"><img src="https://images.unsplash.com/photo-1607435097405-db48f377bff6?w=900&q=85" alt=""></div>
+        <h3 class="j-card__title">米麹×だしの方程式 ／ MEGURIWAが試作で見つけた答え</h3>
+        <p class="j-card__date">2026.04.07</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============= プロジェクト商品 ============= -->
+<section class="proj-products" id="products">
+  <div class="container">
+    <div class="proj-products__head">
+      <p class="proj-products__eyebrow">— Fermentation Selection</p>
+      <h2 class="proj-products__title">巡るもの ／ このプロジェクトの商品</h2>
+    </div>
+
+    <div class="proj-products__tools">
+      <div class="proj-products__count">巡るもの 4 点</div>
+      <div>SORT — 新着順</div>
+    </div>
+
+    <div class="product-grid">
+      <article class="product">
+        <div class="product__img"><img src="https://images.unsplash.com/photo-1607435097405-db48f377bff6?w=800&q=85" alt=""></div>
+        <p class="product__maker">MARUHACHI / SHIGA</p>
+        <h3 class="product__name">米麹ドレッシング 玉ねぎ</h3>
+        <p class="product__price">¥1,180</p>
+      </article>
+      <article class="product">
+        <div class="product__img"><img src="https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=800&q=85" alt=""></div>
+        <p class="product__maker">MARUHACHI / SHIGA</p>
+        <h3 class="product__name">米麹ドレッシング 大葉</h3>
+        <p class="product__price">¥1,180</p>
+      </article>
+      <article class="product">
+        <div class="product__img"><img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&q=85" alt=""></div>
+        <p class="product__maker">MARUHACHI / SHIGA</p>
+        <h3 class="product__name">米麹ドレッシング 三種セット</h3>
+        <p class="product__price">¥3,240</p>
+      </article>
+      <article class="product">
+        <div class="product__img"><img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&q=85" alt=""></div>
+        <p class="product__maker">MARUHACHI / SHIGA</p>
+        <h3 class="product__name">発酵常備菜 季節便</h3>
+        <p class="product__price">¥4,800</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============= Curators ============= -->
+<section class="proj-curators">
+  <div class="proj-curators__head">
+    <h2 class="proj-curators__title">CURATORS</h2>
+    <p class="proj-curators__sub">このプロジェクトを推すパートナー</p>
+  </div>
+  <div class="cur-grid">
+    <article class="cur-card">
+      <div class="cur-card__img"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=85" alt=""></div>
+      <p class="cur-card__role">CURATOR / TOKYO</p>
+      <h3 class="cur-card__name">Sow</h3>
+      <p class="cur-card__quote">"麹の香りで、朝が変わる。"</p>
+    </article>
+    <article class="cur-card">
+      <div class="cur-card__img"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=85" alt=""></div>
+      <p class="cur-card__role">CURATOR / FUKUOKA</p>
+      <h3 class="cur-card__name">Mika Hirota</h3>
+      <p class="cur-card__quote">"台所のいちばん近くに置きたい味。"</p>
+    </article>
+    <article class="cur-card">
+      <div class="cur-card__img"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=85" alt=""></div>
+      <p class="cur-card__role">CURATOR / KYOTO</p>
+      <h3 class="cur-card__name">Kenji Ono</h3>
+      <p class="cur-card__quote">"発酵は、所作の延長線にある。"</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============= Footer ============= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer__brand">
+        <p class="footer__brand-name">MEGURIWA</p>
+        <p class="footer__brand-tag">
+          循環のモノ・コト。<br>
+          つながる輪、巡るくらし。
+        </p>
+      </div>
+      <div class="footer__col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="../market.html">MARKET</a></li>
+          <li><a href="../projects.html">PROJETCS</a></li>
+          <li><a href="#">JOURNAL</a></li>
+          <li><a href="../makers.html">MAKERS</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Community</h4>
+        <ul>
+          <li><a href="../partners.html">PARTNERS</a></li>
+          <li><a href="../join.html">JOIN</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Information</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="https://meguriwasupport.studio.site/" target="_blank" rel="noopener">CONTACT</a></li>
+          <li><a href="#">特定商取引法</a></li>
+          <li><a href="#">プライバシー</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 MEGURIWA</span>
+      <span>JA ／ EN</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
