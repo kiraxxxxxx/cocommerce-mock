@@ -495,6 +495,70 @@ a{color:inherit;text-decoration:none}
 
 
 
+
+/* ----------- JOIN section on TOP (3-card 並列) ----------- */
+.top-join{
+  padding:140px 0 120px;
+  background:var(--paper);
+  border-top:1px solid var(--line);
+}
+.top-join__head{text-align:center;margin-bottom:64px}
+.top-join__eyebrow{
+  font-family:var(--display);font-style:italic;font-size:14px;
+  letter-spacing:0.18em;color:var(--muted);margin:0 0 18px;
+}
+.top-join__title{
+  font-family:var(--serif);
+  font-size:clamp(28px,3.4vw,42px);
+  font-weight:300;letter-spacing:0.16em;line-height:1.6;
+  margin:0 0 24px;
+}
+.top-join__lead{
+  font-family:var(--serif);
+  font-size:14px;line-height:2.2;
+  color:var(--ink-soft);
+  max-width:560px;margin:0 auto;letter-spacing:0.06em;
+}
+
+.top-join__cards{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+}
+.top-join-card{
+  border:1px solid var(--line);
+  padding:48px 32px;
+  background:var(--paper);
+  display:flex;flex-direction:column;
+  text-align:left;
+  transition:background .3s, border-color .3s;
+}
+.top-join-card:hover{background:var(--line-soft)}
+.top-join-card__badge{
+  font-family:var(--display);font-style:italic;
+  font-size:13px;letter-spacing:0.16em;
+  color:var(--ink-soft);margin:0 0 24px;
+}
+.top-join-card__title{
+  font-family:var(--serif);
+  font-size:20px;font-weight:400;
+  letter-spacing:0.1em;line-height:1.6;
+  margin:0 0 16px;
+}
+.top-join-card__body{
+  font-size:13px;line-height:2;color:var(--ink-soft);
+  margin:0 0 28px;flex:1;
+}
+.top-join-card__link{
+  font-family:var(--sans);font-size:11px;letter-spacing:0.22em;
+  border-bottom:1px solid var(--ink);padding-bottom:3px;
+  color:var(--ink);
+  align-self:flex-start;
+}
+
+@media (max-width:760px){
+  .top-join__cards{grid-template-columns:1fr;gap:16px}
+  .top-join{padding:100px 0 80px}
+}
+
 </style>
 </head>
 <body>
@@ -763,6 +827,49 @@ a{color:inherit;text-decoration:none}
       日本の文化を "今の生活に生きる形" でアップデートする。
     </p>
     <p class="statement__sig">— MEGURIWA, 2026 Spring</p>
+  </div>
+</section>
+
+<!-- ============= JOIN (3-card 並列・三方よし) ============= -->
+<section class="top-join">
+  <div class="container">
+    <div class="top-join__head">
+      <p class="top-join__eyebrow">— Three Ways to Join</p>
+      <h2 class="top-join__title">三方よし、を、いま。</h2>
+      <p class="top-join__lead">
+        作り手として、伝え手として、買い手として。<br>
+        あなたの立ち位置から、文化を未来に渡す仕事に加わってください。
+      </p>
+    </div>
+
+    <div class="top-join__cards">
+      <a href="pages/join.html" class="top-join-card">
+        <p class="top-join-card__badge">For Makers</p>
+        <h3 class="top-join-card__title">つくり手として、<br>参加する。</h3>
+        <p class="top-join-card__body">
+          全国の工房・作家・農家・漁師。手仕事を、暮らしの中に届けるための共創型の販路。在庫リスクなし、世界観の共有から始められます。
+        </p>
+        <span class="top-join-card__link">DETAILS →</span>
+      </a>
+
+      <a href="pages/join.html" class="top-join-card">
+        <p class="top-join-card__badge">For Curators</p>
+        <h3 class="top-join-card__title">伝え手として、<br>参加する。</h3>
+        <p class="top-join-card__body">
+          選抜制・招待制のキュレーター制度。あなたの選書がそのまま、誰かの暮らしの起点に。「Curated by ◯◯」のコレクションを持てます。
+        </p>
+        <span class="top-join-card__link">DETAILS →</span>
+      </a>
+
+      <a href="pages/join.html" class="top-join-card">
+        <p class="top-join-card__badge">For You</p>
+        <h3 class="top-join-card__title">暮らし手として、<br>つながる。</h3>
+        <p class="top-join-card__body">
+          月1のおたよりで、新しい工房と、巡るものたちのストーリーをお届け。買って応援は、いちばん静かな参加のかたち。
+        </p>
+        <span class="top-join-card__link">DETAILS →</span>
+      </a>
+    </div>
   </div>
 </section>
 
