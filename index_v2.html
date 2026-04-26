@@ -435,6 +435,57 @@ a{color:inherit;text-decoration:none}
   .footer-grid{grid-template-columns:1fr;gap:40px}
 }
 
+
+/* ----------- STATEMENT (Full-width image + Rich text) ----------- */
+.statement{
+  margin-top:0;
+}
+.statement__visual{
+  width:100%;
+  height:62vh;
+  min-height:480px;
+  background-image:url('https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?w=2400&q=85');
+  background-size:cover;
+  background-position:center;
+  filter:saturate(0.92) contrast(1.02);
+}
+.statement__body{
+  padding:120px 0 100px;
+  text-align:center;
+}
+.statement__eyebrow{
+  font-family:var(--display);
+  font-style:italic;
+  font-size:14px;
+  letter-spacing:0.18em;
+  color:var(--muted);
+  margin:0 0 32px;
+}
+.statement__quote{
+  font-family:var(--serif);
+  font-size:clamp(20px,2.4vw,26px);
+  font-weight:300;
+  line-height:2.4;
+  letter-spacing:0.1em;
+  margin:0;
+  color:var(--ink);
+}
+.statement__quote em{
+  font-family:var(--display);
+  font-style:italic;
+  font-weight:400;
+  color:var(--ink);
+}
+.statement__sig{
+  font-family:var(--sans);font-size:11px;letter-spacing:0.22em;
+  color:var(--muted);margin-top:48px;
+}
+
+@media (max-width:760px){
+  .statement__visual{height:46vh;min-height:340px}
+  .statement__body{padding:80px 0 64px}
+}
+
 </style>
 </head>
 <body>
@@ -686,6 +737,24 @@ a{color:inherit;text-decoration:none}
         <h3 class="latest-card__title">"巡るリサイクルアート"の世界 ／ 門衛製造／門衛製造株式会社 代表取締役</h3>
         <p class="latest-card__meta"><span>2026.03.14</span><span>Interview</span></p>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============= STATEMENT (Full-width image + Rich text) ============= -->
+<section class="statement">
+  <div class="statement__visual"></div>
+  <div class="statement__body">
+    <div class="container--narrow">
+      <p class="statement__eyebrow">— Our Statement</p>
+      <p class="statement__quote">
+        民藝運動を、いま、やるなら。<br><br>
+        日本の文化は、<em>守る</em>ものではなく、<br>
+        <em>使われるほど進化する</em>もの。<br><br>
+        作り手・伝え手・買い手がつながり、<br>
+        日本の文化を “今の生活に生きる形” で<br>アップデートする。
+      </p>
+      <p class="statement__sig">— MEGURIWA, 2026 Spring</p>
     </div>
   </div>
 </section>
