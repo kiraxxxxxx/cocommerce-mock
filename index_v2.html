@@ -1,0 +1,773 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MEGURIWA — 循環のモノ・コト</title>
+<meta name="description" content="日本で初めての推し活型 Co-Commerce プラットフォーム。つくり手と暮らし手が共に育てる新しい文化圏。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a1a;
+  --ink-soft:#3a3a3a;
+  --paper:#ffffff;
+  --line:#e8e4dc;
+  --line-soft:#f0ece4;
+  --muted:#8a857a;
+  --serif: "Noto Serif JP", "Hiragino Mincho ProN", serif;
+  --sans:  "Noto Sans JP", "Hiragino Sans", sans-serif;
+  --display: "Cormorant Garamond", "Noto Serif JP", serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:var(--serif);
+  font-weight:300;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.95;
+  letter-spacing:0.04em;
+  font-feature-settings:"palt" 1;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+
+.container{max-width:1280px;margin:0 auto;padding:0 32px}
+.container--narrow{max-width:760px;margin:0 auto;padding:0 32px}
+.container--wide{max-width:1480px;margin:0 auto;padding:0 32px}
+
+/* ----------- Header ----------- */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.site-header__inner{
+  display:flex;align-items:center;justify-content:space-between;
+  height:74px;padding:0 32px;
+}
+.site-header__logo{
+  font-family:var(--display);
+  font-size:18px;
+  letter-spacing:0.36em;
+  font-weight:500;
+  line-height:1;
+}
+.site-nav{display:flex;gap:30px;font-family:var(--sans);font-size:11px;letter-spacing:0.18em;font-weight:400}
+.site-nav a{color:var(--ink);transition:opacity .3s}
+.site-nav a:hover{opacity:0.55}
+.site-header__lang{font-family:var(--sans);font-size:10px;letter-spacing:0.2em;color:var(--muted)}
+.site-header__lang span.active{color:var(--ink);font-weight:500}
+
+@media (max-width:900px){
+  .site-nav{display:none}
+}
+
+/* ----------- HERO (Image banner / 素材1点・大画面) ----------- */
+.hero{
+  position:relative;
+  height:78vh;
+  min-height:560px;
+  margin-top:74px;
+  overflow:hidden;
+  background:#1a1a1a;
+}
+.hero__bg{
+  position:absolute;inset:0;
+  background-image:url('https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=2400&q=85');
+  background-size:cover;
+  background-position:center;
+  filter:brightness(0.78) saturate(0.92);
+}
+.hero__inner{
+  position:relative;z-index:2;
+  height:100%;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:0 64px 96px;
+  color:#fff;
+}
+.hero__headline{
+  font-family:var(--serif);
+  font-size:clamp(36px,5vw,64px);
+  font-weight:300;
+  letter-spacing:0.18em;
+  line-height:1.4;
+  margin:0 0 20px;
+}
+.hero__sub{
+  font-family:var(--display);
+  font-style:italic;
+  font-size:16px;
+  letter-spacing:0.08em;
+  color:#e8e4dc;
+  margin:0;
+}
+
+@media (max-width:760px){
+  .hero{height:64vh;min-height:440px}
+  .hero__inner{padding:0 32px 56px}
+}
+
+/* ----------- WE ARE (Rich text) ----------- */
+.weare{padding:140px 0 120px;text-align:center}
+.weare__label{
+  font-family:var(--display);
+  font-style:italic;
+  font-size:18px;
+  letter-spacing:0.32em;
+  color:var(--ink);
+  margin:0 0 32px;
+}
+.weare__body{
+  font-size:15px;
+  line-height:2.4;
+  letter-spacing:0.06em;
+  color:var(--ink-soft);
+  max-width:600px;
+  margin:0 auto;
+}
+.weare__body p{margin:0 0 20px}
+.weare__body p:last-child{margin-bottom:0}
+.weare__cta{
+  display:inline-block;
+  margin-top:48px;
+  font-family:var(--sans);
+  font-size:11px;letter-spacing:0.24em;
+  border-bottom:1px solid var(--ink);
+  padding-bottom:4px;
+}
+
+/* ----------- TSUKURITE (Multicolumn) ----------- */
+.tsukurite{padding:80px 0 140px}
+.tsukurite__head{text-align:center;margin-bottom:64px}
+.tsukurite__title{
+  font-family:var(--display);
+  font-size:42px;
+  letter-spacing:0.16em;
+  font-weight:400;
+  margin:0 0 12px;
+}
+.tsukurite__sub{
+  font-family:var(--serif);
+  font-size:13px;
+  letter-spacing:0.2em;
+  color:var(--muted);
+  margin:0 0 8px;
+}
+.tsukurite__more{
+  font-family:var(--sans);font-size:11px;letter-spacing:0.2em;
+  color:var(--muted);
+  border-bottom:1px solid var(--line);
+  padding-bottom:3px;
+  display:inline-block;margin-top:24px;
+}
+
+.tsukurite__grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+.tsukurite__cell{
+  position:relative;
+  aspect-ratio:1;
+  background:#e8e4dc;
+  overflow:hidden;
+}
+.tsukurite__cell img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 1.2s ease;
+}
+.tsukurite__cell:hover img{transform:scale(1.04)}
+.tsukurite__cell-info{
+  position:absolute;left:24px;bottom:20px;
+  color:#fff;
+}
+.tsukurite__cell-info .loc{
+  font-family:var(--sans);font-size:10px;letter-spacing:0.22em;color:#fff;
+  margin:0 0 6px;text-transform:uppercase;opacity:0.92;
+}
+.tsukurite__cell-info .name{
+  font-family:var(--serif);font-size:15px;letter-spacing:0.08em;color:#fff;
+  margin:0;font-weight:400;line-height:1.6;
+}
+
+@media (max-width:760px){
+  .tsukurite__grid{grid-template-columns:1fr;gap:8px}
+  .tsukurite__cell{aspect-ratio:4/3}
+}
+
+/* ----------- PICK UP (記事中心・メディア型) ----------- */
+.pickup{padding:120px 0;background:var(--paper)}
+.pickup__head{
+  text-align:right;
+  margin-bottom:48px;
+}
+.pickup__title{
+  font-family:var(--display);
+  font-size:clamp(48px,6vw,72px);
+  letter-spacing:0.16em;
+  font-weight:300;
+  margin:0;line-height:1;
+}
+.pickup__list{
+  display:flex;flex-direction:column;
+}
+.pickup__row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  border-top:1px solid var(--line);
+  position:relative;
+}
+.pickup__row:last-child{border-bottom:1px solid var(--line)}
+.pickup__img{
+  aspect-ratio:16/10;
+  overflow:hidden;
+  background:#e8e4dc;
+}
+.pickup__img img{width:100%;height:100%;object-fit:cover}
+.pickup__txt{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:48px 56px;
+  position:relative;
+}
+.pickup__cat{
+  font-family:var(--display);font-style:italic;font-size:14px;
+  color:var(--muted);letter-spacing:0.1em;margin:0 0 14px;
+}
+.pickup__copy{
+  font-family:var(--serif);font-size:15px;line-height:2.1;letter-spacing:0.05em;
+  color:var(--ink-soft);margin:0;max-width:480px;
+}
+.pickup__sidemark{
+  position:absolute;right:32px;top:50%;
+  transform:translateY(-50%) rotate(90deg);transform-origin:right center;
+  font-family:var(--sans);font-size:10px;letter-spacing:0.32em;color:var(--muted);
+  text-transform:uppercase;
+}
+
+@media (max-width:760px){
+  .pickup__row{grid-template-columns:1fr}
+  .pickup__txt{padding:32px}
+  .pickup__sidemark{display:none}
+}
+
+/* ----------- 循環のモノ・コト ----------- */
+.market{padding:140px 0 120px;border-top:1px solid var(--line);background:var(--line-soft)}
+.market__head{text-align:center;margin-bottom:56px}
+.market__eyebrow{
+  font-family:var(--display);font-style:italic;font-size:13px;
+  color:var(--ink);letter-spacing:0.12em;margin:0 0 12px;
+}
+.market__title{
+  font-family:var(--serif);font-size:24px;letter-spacing:0.18em;font-weight:400;margin:0 0 8px;
+}
+.market__sub{
+  font-family:var(--display);font-size:13px;letter-spacing:0.08em;color:var(--muted);margin:0;font-style:italic;
+}
+
+.product-row{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:16px;
+}
+.product{cursor:pointer}
+.product__img{
+  aspect-ratio:1;background:#fff;margin-bottom:12px;overflow:hidden;
+  border:1px solid var(--line);
+}
+.product__img img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.product:hover .product__img img{transform:scale(1.04)}
+.product__name{
+  font-family:var(--serif);font-size:11px;letter-spacing:0.06em;font-weight:400;
+  margin:0 0 4px;line-height:1.6;color:var(--ink);
+}
+.product__maker{
+  font-family:var(--sans);font-size:9px;letter-spacing:0.2em;
+  color:var(--muted);margin:0 0 4px;text-transform:uppercase;
+}
+.product__price{
+  font-family:var(--sans);font-size:10px;letter-spacing:0.06em;color:var(--ink-soft);
+  margin:0;
+}
+.product__price .sale{
+  display:inline-block;color:#a8503c;font-weight:500;margin-left:8px;
+}
+
+.market__cta{margin-top:64px;text-align:center}
+.btn-line{
+  display:inline-block;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.24em;
+  padding:14px 36px;
+  border:1px solid var(--ink);
+  background:transparent;color:var(--ink);
+  transition:background .3s,color .3s;
+}
+.btn-line:hover{background:var(--ink);color:#fff}
+
+@media (max-width:900px){
+  .product-row{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:560px){
+  .product-row{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ----------- LATEST (Blog posts) ----------- */
+.latest{padding:140px 0 120px}
+.latest__head{text-align:center;margin-bottom:56px}
+.latest__title{
+  font-family:var(--display);font-size:42px;letter-spacing:0.18em;
+  font-weight:400;margin:0;
+}
+
+.latest-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:48px;
+}
+.latest-card{cursor:pointer}
+.latest-card__img{aspect-ratio:4/3;overflow:hidden;background:#e8e4dc;margin-bottom:20px}
+.latest-card__img img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.latest-card:hover .latest-card__img img{transform:scale(1.04)}
+.latest-card__title{
+  font-family:var(--serif);font-size:14px;letter-spacing:0.06em;
+  font-weight:400;margin:0 0 12px;line-height:1.85;
+}
+.latest-card__meta{
+  font-family:var(--sans);font-size:10px;letter-spacing:0.18em;color:var(--muted);
+  margin:0;
+}
+.latest-card__meta span:not(:last-child)::after{
+  content:"／";margin:0 8px;color:var(--line);
+}
+
+@media (max-width:760px){
+  .latest-grid{grid-template-columns:1fr;gap:48px}
+}
+
+/* ----------- CURATOR INVITATION (薄く・小さく) ----------- */
+.invite{
+  padding:100px 0;
+  border-top:1px solid var(--line);
+  text-align:center;
+}
+.invite__eyebrow{
+  font-family:var(--display);font-style:italic;font-size:13px;
+  color:var(--muted);letter-spacing:0.16em;margin:0 0 18px;
+}
+.invite__title{
+  font-family:var(--serif);font-size:clamp(20px,2.4vw,28px);
+  font-weight:300;letter-spacing:0.1em;line-height:2;margin:0 0 32px;
+}
+.invite__steps{
+  display:flex;justify-content:center;gap:48px;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.22em;color:var(--muted);
+  margin:0 0 40px;text-transform:uppercase;
+}
+.invite__steps span{position:relative;padding:0 4px}
+.invite__steps span:not(:last-child)::after{
+  content:"→";position:absolute;right:-32px;top:0;color:var(--line);
+}
+
+@media (max-width:760px){
+  .invite__steps{flex-direction:column;gap:12px}
+  .invite__steps span:not(:last-child)::after{display:none}
+}
+
+/* ----------- RELATED PROJECTS ----------- */
+.related{
+  padding:96px 0;border-top:1px solid var(--line);
+}
+.related__inner{
+  display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:center;
+}
+.related__head h3{
+  font-family:var(--display);font-size:24px;letter-spacing:0.16em;
+  font-weight:400;margin:0 0 16px;
+}
+.related__head p{
+  font-size:13px;line-height:2;color:var(--ink-soft);margin:0;max-width:340px;
+}
+.related__logos{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:32px;align-items:center;
+}
+.related__logo{
+  font-family:var(--display);
+  font-size:14px;letter-spacing:0.16em;
+  text-align:center;color:var(--ink);
+  padding:16px 8px;
+  border:1px solid var(--line);
+  aspect-ratio:2/1;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:500;
+}
+.related__logo--small{font-size:12px;letter-spacing:0.18em}
+
+@media (max-width:760px){
+  .related__inner{grid-template-columns:1fr;gap:48px}
+  .related__logos{grid-template-columns:repeat(3,1fr);gap:16px}
+}
+
+/* ----------- Footer ----------- */
+.site-footer{
+  background:#fff;
+  padding:80px 0 32px;
+  border-top:1px solid var(--line);
+}
+.footer-grid{
+  display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;margin-bottom:64px;
+}
+.footer__brand-name{font-family:var(--display);font-size:22px;letter-spacing:0.36em;font-weight:500;margin:0 0 20px}
+.footer__brand-tag{font-family:var(--serif);font-size:13px;line-height:2;color:var(--ink-soft);margin:0 0 24px;max-width:300px}
+.footer__col h4{font-family:var(--sans);font-size:10px;letter-spacing:0.22em;color:var(--muted);margin:0 0 18px;text-transform:uppercase;font-weight:500}
+.footer__col ul{list-style:none;padding:0;margin:0}
+.footer__col li{margin-bottom:12px;font-size:12px;letter-spacing:0.06em}
+.footer__col a:hover{opacity:0.6}
+.footer__bottom{
+  border-top:1px solid var(--line);
+  padding-top:24px;
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--sans);font-size:10px;letter-spacing:0.16em;color:var(--muted);
+}
+
+@media (max-width:760px){
+  .footer-grid{grid-template-columns:1fr;gap:40px}
+}
+
+</style>
+</head>
+<body>
+
+<!-- ============= HEADER ============= -->
+<header class="site-header">
+  <div class="site-header__inner">
+    <div class="site-header__logo">MEGURIWA</div>
+    <nav class="site-nav">
+      <a href="#">HOME</a>
+      <a href="#">LATEST</a>
+      <a href="#">SHOP / PROJECT</a>
+      <a href="#">MEMBERS</a>
+      <a href="#">STORE</a>
+      <a href="#">TSUKURITE</a>
+      <a href="#">PICK UP</a>
+      <a href="#">SHOP &amp; READ MAG</a>
+      <a href="#">VIEW EVENTS</a>
+    </nav>
+    <div class="site-header__lang">
+      <span class="active">JA</span> ／ <span>EN</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============= HERO (Horizon: Image banner) ============= -->
+<section class="hero">
+  <div class="hero__bg"></div>
+  <div class="hero__inner">
+    <h1 class="hero__headline">循環のモノ・コト</h1>
+    <p class="hero__sub">Learning from nature, Living with nature.</p>
+  </div>
+</section>
+
+<!-- ============= WE ARE (Horizon: Rich text) ============= -->
+<section class="weare">
+  <div class="container--narrow">
+    <p class="weare__label">WE ARE</p>
+    <div class="weare__body">
+      <p>
+        日々、自然とのくらしの中で発見してきた「日本の美意識」を、<br>
+        いいものを通じて、お届けしています。
+      </p>
+      <p>
+        知恵が、心音が、編み、つむぎ出される景色のさきに。<br>
+        そして元気のある未来がこれから生まれ、 そのまま、未来につながる。
+      </p>
+      <p>
+        だから繋いでいます。
+      </p>
+    </div>
+    <a href="#" class="weare__cta">READ MORE</a>
+  </div>
+</section>
+
+<!-- ============= TSUKURITE (Horizon: Multicolumn) ============= -->
+<section class="tsukurite">
+  <div class="container">
+    <div class="tsukurite__head">
+      <p class="tsukurite__sub">Makers</p>
+      <h2 class="tsukurite__title">TSUKURITE</h2>
+      <p class="tsukurite__sub" style="margin-top:8px">つくりて</p>
+    </div>
+
+    <div class="tsukurite__grid">
+      <div class="tsukurite__cell">
+        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&q=85" alt="">
+        <div class="tsukurite__cell-info">
+          <p class="loc">FUKUI</p>
+          <p class="name">小山カバーリング</p>
+        </div>
+      </div>
+      <div class="tsukurite__cell">
+        <img src="https://images.unsplash.com/photo-1567696911980-2eed69a46042?w=1200&q=85" alt="">
+        <div class="tsukurite__cell-info">
+          <p class="loc">TOKYO</p>
+          <p class="name">野村製作所</p>
+        </div>
+      </div>
+      <div class="tsukurite__cell">
+        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=1200&q=85" alt="">
+        <div class="tsukurite__cell-info">
+          <p class="loc">NAGANO</p>
+          <p class="name">SORENA</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:48px">
+      <a href="#" class="tsukurite__more">つくりて 一覧 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============= PICK UP (Horizon: Multirow) ============= -->
+<section class="pickup">
+  <div class="container">
+    <div class="pickup__head">
+      <h2 class="pickup__title">PICK UP</h2>
+    </div>
+
+    <div class="pickup__list">
+      <article class="pickup__row">
+        <div class="pickup__img">
+          <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1400&q=85" alt="">
+        </div>
+        <div class="pickup__txt">
+          <p class="pickup__cat">Collaboration</p>
+          <p class="pickup__copy">
+            ファッションプロジェクト「#MY FIRST FIAT」と「めぐりわ」のコラボレーション。私たちが循環型のものづくりを大切にしているのに、特別な一台で。
+          </p>
+          <p class="pickup__sidemark">Special</p>
+        </div>
+      </article>
+
+      <article class="pickup__row">
+        <div class="pickup__img">
+          <img src="https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=1400&q=85" alt="">
+        </div>
+        <div class="pickup__txt">
+          <p class="pickup__cat">From Mag</p>
+          <p class="pickup__copy">
+            サステイナビリティの実装、施設、上勝ゼロウェイスト宣言の街にある未来。新発信。
+          </p>
+          <p class="pickup__sidemark">Interview</p>
+        </div>
+      </article>
+
+      <article class="pickup__row">
+        <div class="pickup__img">
+          <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1400&q=85" alt="">
+        </div>
+        <div class="pickup__txt">
+          <p class="pickup__cat">From Mag</p>
+          <p class="pickup__copy">
+            「裏で見せたい」が広がるための風景の現代的な意味と、地域に根ざしたものをつくっていく。中野・林田悟也氏に話。
+          </p>
+          <p class="pickup__sidemark">Interview</p>
+        </div>
+      </article>
+
+      <article class="pickup__row">
+        <div class="pickup__img">
+          <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1400&q=85" alt="">
+        </div>
+        <div class="pickup__txt">
+          <p class="pickup__cat">From Mag</p>
+          <p class="pickup__copy">
+            「数百年続く工房から見る景観の現在地形を考える、地域に根ざしたものをつくっていく。」中野・吉橋設計株式会社。
+          </p>
+          <p class="pickup__sidemark">Interview</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============= 循環のモノ・コト (Horizon: Featured collection) ============= -->
+<section class="market">
+  <div class="container">
+    <div class="market__head">
+      <p class="market__eyebrow">— circulating</p>
+      <h2 class="market__title">循環のモノ・コト</h2>
+      <p class="market__sub">Learning from nature, Living with nature.<br>Inspired by the every day, a works shop for the ordinary and the extraordinary.</p>
+    </div>
+
+    <div class="product-row">
+      <article class="product">
+        <div class="product__img"><img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=600&q=85" alt=""></div>
+        <p class="product__maker">NOMURA</p>
+        <p class="product__name">バッグ 通勤</p>
+        <p class="product__price">¥3,300 <span class="sale">SALE</span></p>
+      </article>
+      <article class="product">
+        <div class="product__img"><img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&q=85" alt=""></div>
+        <p class="product__maker">MEIKOKUDO</p>
+        <p class="product__name">マグ 草色</p>
+        <p class="product__price">¥1,980</p>
+      </article>
+      <article class="product">
+        <div class="product__img"><img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=600&q=85" alt=""></div>
+        <p class="product__maker">LIFT</p>
+        <p class="product__name">マグ 茶銅</p>
+        <p class="product__price">¥2,530</p>
+      </article>
+      <article class="product">
+        <div class="product__img"><img src="https://images.unsplash.com/photo-1495774856032-8b90bbb32b32?w=600&q=85" alt=""></div>
+        <p class="product__maker">VERTPOINT</p>
+        <p class="product__name">マグ 鉄白</p>
+        <p class="product__price">¥2,530 <span class="sale">SALE</span></p>
+      </article>
+      <article class="product">
+        <div class="product__img"><img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=600&q=85" alt=""></div>
+        <p class="product__maker">KOYAMA</p>
+        <p class="product__name">マグ しのぎ</p>
+        <p class="product__price">¥2,200 <span class="sale">SALE</span></p>
+      </article>
+      <article class="product">
+        <div class="product__img"><img src="https://images.unsplash.com/photo-1607435097405-db48f377bff6?w=600&q=85" alt=""></div>
+        <p class="product__maker">ENON</p>
+        <p class="product__name">小鉢 鉄白</p>
+        <p class="product__price">¥6,600</p>
+      </article>
+    </div>
+
+    <div class="market__cta">
+      <a href="#" class="btn-line">商品 一覧</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============= LATEST (Horizon: Blog posts) ============= -->
+<section class="latest">
+  <div class="container">
+    <div class="latest__head">
+      <h2 class="latest__title">LATEST</h2>
+    </div>
+
+    <div class="latest-grid">
+      <article class="latest-card">
+        <div class="latest-card__img"><img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=900&q=85" alt=""></div>
+        <h3 class="latest-card__title">サステイナビリティの実装、施設、上勝ゼロウェイスト宣言の街にある未来。〔ガールズトーク・ジャーナル〕</h3>
+        <p class="latest-card__meta"><span>2026.04.20</span><span>Magazine, Interview</span></p>
+      </article>
+      <article class="latest-card">
+        <div class="latest-card__img"><img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=900&q=85" alt=""></div>
+        <h3 class="latest-card__title">緑、森、土、林田悟…民藝あの言葉さえ、話してくれる。〔林田悟〕</h3>
+        <p class="latest-card__meta"><span>2026.04.14</span><span>Magazine, Interview</span></p>
+      </article>
+      <article class="latest-card">
+        <div class="latest-card__img"><img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=900&q=85" alt=""></div>
+        <h3 class="latest-card__title">"巡るリサイクルアート"の世界 ／ 門衛製造／門衛製造株式会社 代表取締役</h3>
+        <p class="latest-card__meta"><span>2026.04.07</span><span>Interview</span></p>
+      </article>
+
+      <article class="latest-card">
+        <div class="latest-card__img"><img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=900&q=85" alt=""></div>
+        <h3 class="latest-card__title">クリエイティブの実装、施設、上勝ゼロウェイスト宣言の街にある未来。〔ガールズトーク・ジャーナル〕</h3>
+        <p class="latest-card__meta"><span>2026.03.30</span><span>Magazine, Interview</span></p>
+      </article>
+      <article class="latest-card">
+        <div class="latest-card__img"><img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=900&q=85" alt=""></div>
+        <h3 class="latest-card__title">竹、森、土、林田悟…内蔵あの言葉さえ、話してくれる。〔林田悟〕</h3>
+        <p class="latest-card__meta"><span>2026.03.21</span><span>Magazine, Interview</span></p>
+      </article>
+      <article class="latest-card">
+        <div class="latest-card__img"><img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=900&q=85" alt=""></div>
+        <h3 class="latest-card__title">"巡るリサイクルアート"の世界 ／ 門衛製造／門衛製造株式会社 代表取締役</h3>
+        <p class="latest-card__meta"><span>2026.03.14</span><span>Interview</span></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CURATOR INVITATION (薄め) ============= -->
+<section class="invite">
+  <div class="container--narrow">
+    <p class="invite__eyebrow">Become a Curator</p>
+    <p class="invite__title">
+      気に入ったものを、<br>あなたのことばで、誰かに伝える。
+    </p>
+    <div class="invite__steps">
+      <span>Use</span>
+      <span>Share</span>
+      <span>Circulate</span>
+    </div>
+    <a href="#" class="btn-line">伝え手について</a>
+  </div>
+</section>
+
+<!-- ============= RELATED PROJECTS ============= -->
+<section class="related">
+  <div class="container">
+    <div class="related__inner">
+      <div class="related__head">
+        <h3>OUR RELATED<br>PROJECT / EVEN</h3>
+        <p>めぐりわが寄り添う、暮らしの景色をつくる仲間たち。Sustainable Development Goalsの哲学を編み込みながら、地域と一緒に育っていく。</p>
+      </div>
+      <div class="related__logos">
+        <div class="related__logo">MEGURIWA</div>
+        <div class="related__logo related__logo--small">Circular<br>Bio Academy</div>
+        <div class="related__logo">haco</div>
+        <div class="related__logo">sou</div>
+        <div class="related__logo related__logo--small">食器堂</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= Footer ============= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer__brand">
+        <p class="footer__brand-name">MEGURIWA</p>
+        <p class="footer__brand-tag">
+          循環のモノ・コト。<br>
+          つながる輪、巡るくらし。
+        </p>
+      </div>
+      <div class="footer__col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#">STORE</a></li>
+          <li><a href="#">TSUKURITE</a></li>
+          <li><a href="#">PICK UP</a></li>
+          <li><a href="#">SHOP &amp; READ MAG</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Community</h4>
+        <ul>
+          <li><a href="#">MEMBERS</a></li>
+          <li><a href="#">CURATORS</a></li>
+          <li><a href="#">VIEW EVENTS</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Information</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">CONTACT</a></li>
+          <li><a href="#">特定商取引法</a></li>
+          <li><a href="#">プライバシー</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 MEGURIWA</span>
+      <span>JA ／ EN</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
